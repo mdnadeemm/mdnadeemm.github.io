@@ -17,36 +17,66 @@ body {
     max-width: 100%;
     background-color: white;
     padding: 20mm;
-    
 }
 
 header {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-bottom: 1px solid #ccc;
     margin-bottom: 10mm;
 }
 
+.name {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+}
+
+header p {
+    margin: 0;
+}
+
+.address-contact {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    margin-top: 5mm;
+}
+
+.address, .contact {
+   
+}
+
 section {
     margin-bottom: 10mm;
+    text-align: justify;
 }
 
-h1, h2, h3 {
-    color: #333;
-}
-
-h2 {
+.heading {
+    font-weight: 700;
+    font-size: 18px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
     margin-bottom: 5mm;
 }
 
+.subheading {
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 5mm;
+}
+
 ul {
     list-style-type: none;
-    padding: 0;
+    padding-left: 0;
 }
 
 li {
     margin-bottom: 5mm;
+    font-weight: 400;
+    text-align: justify;
 }
 
 footer {
