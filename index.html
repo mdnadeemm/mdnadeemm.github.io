@@ -3,132 +3,800 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammad Nadeem's Resume</title>
+    <title>Mohammad Nadeem | AI & ML Engineer</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            padding: 20px;
-            background-color: white;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        .contact {
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        hr {
-            border: 1px solid black;
-            margin: 10px 0;
-        }
-        h2 {
-            font-size: 18px;
-            text-transform: uppercase;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-        p, ul {
-            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
             line-height: 1.6;
         }
-        ul {
-            padding-left: 20px;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 50px;
+            margin-bottom: 80px;
+            align-items: start;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-links a:hover {
+            background-color: #667eea;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .intro-section h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #222;
+        }
+
+        .intro-section .title {
+            font-size: 24px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        /* Skills Section */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #222;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+            display: inline-block;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            word-break: break-word;
+        }
+
+        .project-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-lang {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .project-footer {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .project-link {
+            flex: 1;
+            padding: 8px 12px;
+            background: #f5f5f5;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #667eea;
+        }
+
+        .education-item h3 {
+            color: #222;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .education-item .degree {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .education-item .details {
+            color: #666;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .intro-section h1 {
+                font-size: 36px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 80px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Badge for featured projects */
+        .featured-badge {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Mohammad Nadeem</h1>
-        <p class="contact">partawal chowk, paniyara road, maharajganj | Email: 786.mdnadeem.786@gmail.com</p>
-        <hr>
-        
-        <h2>Objective</h2>
-        <p>A challenging position utilizing my interpersonal skills, technical expertise with Operating Systems, computer hardware, and LANs.</p>
-        <hr>
-        
-        <h2>Professional Summary</h2>
-        <p>Enthusiastic and detail-oriented Electrical Engineering student in the final semester with a strong passion for IT, machine learning, and artificial intelligence. Proficient in programming, problem-solving, and structured learning approaches. Seeking an entry-level opportunity to apply technical skills and contribute effectively in a dynamic environment.</p>
-        <hr>
-        
-        <h2>Education</h2>
-        <p><strong>Bachelor of Technology (B.Tech) in Electrical Engineering</strong><br>
-        Dr. Ram Manohar Lohia Awadh University, Ayodhya <br>
-        Expected Graduation: July, 2025</p>
-        <p><strong>Higher Secondary Education (12th)</strong><br>
-    Metropolitan School, Gorakhpur <br> Year of Completion: 2021</p>
-    <p><strong>Secondary Education (10th)</strong><br>
-    Little Flower School, Maharajganj <br> Year of Completion: 2019</p>
-    
-        <hr>
-        
-        <h2>Technical Skills</h2>
-        <ul>
-            <li>Programming Languages: Python, C, C++</li>
-            <li>Machine Learning & AI: Supervised/Unsupervised Learning, Deep Learning Basics</li>
-            <li>Tools & Technologies: TensorFlow, PyTorch, NumPy, Pandas, Matplotlib</li>
-            <li>Software & Platforms: MATLAB, AutoCAD, Git, Linux</li>
-            <li>Electrical Engineering: Circuit Analysis, Power Systems, Microcontrollers</li>
-        </ul>
-        <hr>
-        
-        <h2>Projects</h2>
-        <p><strong>HTML Editor</strong><br>
-        - we can write html at left panel you can see the preview of the html instantly at the right panel , HTML, CSS, javascript used</p>
-        <p><strong>Cricket Cashout Simulator</strong><br>
-        - you can enter the odds on which you bet and the stake amount and then you can slide the slider to change the odds then you can see cashout amount</p>
-        <hr>
-        <!--
-        <h2>Certifications & Courses</h2>
-        <ul>
-            <li>[Machine Learning Course – Platform]</li>
-            <li>[Deep Learning Specialization – Platform]</li>
-            <li>[Relevant IT/Engineering certification]</li>
-        </ul>
-        <hr>
-        
-        <h2>Internships & Experience</h2>
-        <p><strong>[Company/Organization Name] – [Role]</strong><br>
-        [Month, Year] – [Month, Year]</p>
-        <ul>
-            <li>[Key responsibilities and achievements]</li>
-        </ul>
-        <p><strong>[Company/Organization Name] – [Role]</strong><br>
-        [Month, Year] – [Month, Year]</p>
-        <ul>
-            <li>[Another relevant experience]</li>
-        </ul>
-        <hr>
-        
-        <h2>Achievements & Extracurricular Activities</h2>
-        <ul>
-            <li>[Any relevant competition wins, hackathons, or awards]</li>
-            <li>[Contributions to open-source projects or IT communities]</li>
-            <li>[Leadership roles in college clubs or events]</li>
-        </ul>
-        <hr>
-        -->
-        <h2>Languages</h2>
-        <ul>
-            <li>English (Fluent)</li>
-            <li>Hindi (Fluent)</li>
-        </ul>
-        <hr>
-        
-        <h2>Hobbies & Interests</h2>
-        <ul>
-            <li>Problem-solving and competitive programming</li>
-            <li>Reading about AI advancements</li>
-            <li>Open-source contributions</li>
-        </ul>
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-img">MN</div>
+                <div class="social-links">
+                    <a href="https://github.com/mdnadeemm" title="GitHub" target="_blank">🐙</a>
+                    <a href="https://linkedin.com/in/mdnadeemm" title="LinkedIn" target="_blank">💼</a>
+                    <a href="mailto:786.mdnadeem.786@gmail.com" title="Email">✉️</a>
+                </div>
+            </div>
+
+            <div class="intro-section">
+                <h1>Mohammad Nadeem</h1>
+                <div class="title">AI & Machine Learning Engineer | Full-Stack Developer</div>
+                <p>
+                    Passionate about building intelligent systems and solving complex problems through machine learning and AI.
+                    I'm an Electrical Engineering student with expertise in deep learning, computer vision, and full-stack development.
+                </p>
+                <p>
+                    I create open-source projects, contribute to the ML community, and explore the intersection of AI with creative technologies.
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:786.mdnadeem.786@gmail.com">📧 Email</a>
+                    <a href="https://github.com/mdnadeemm" target="_blank">💻 GitHub</a>
+                    <a href="https://linkedin.com/in/mdnadeemm" target="_blank">💼 LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor of Technology (B.Tech) in Electrical Engineering</h3>
+                <div class="degree">Dr. Ram Manohar Lohia Awadh University, Ayodhya</div>
+                <div class="details">Expected Graduation: July 2025</div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>JavaScript/TypeScript</li>
+                        <li>C/C++</li>
+                        <li>Java</li>
+                        <li>Dart</li>
+                        <li>GDScript</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>ML & AI</h3>
+                    <ul>
+                        <li>Deep Learning (TensorFlow, PyTorch)</li>
+                        <li>Computer Vision</li>
+                        <li>GANs & Autoencoders</li>
+                        <li>NLP & LLMs</li>
+                        <li>Supervised/Unsupervised Learning</li>
+                        <li>Sign Language Translation</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web & Backend</h3>
+                    <ul>
+                        <li>React & Modern Frontend</li>
+                        <li>Node.js & Express</li>
+                        <li>Full-Stack Development</li>
+                        <li>Database Design (SQL, NoSQL)</li>
+                        <li>REST APIs</li>
+                        <li>Git & Version Control</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>TensorFlow & PyTorch</li>
+                        <li>Blender & 3D Graphics</li>
+                        <li>Godot & Game Development</li>
+                        <li>MATLAB & AutoCAD</li>
+                        <li>Docker & Linux</li>
+                        <li>Jupyter & Data Science</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Top Projects -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Sign Language Translator</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="featured-badge">🌟 Featured</div>
+                        <div class="project-lang">Python • Deep Learning</div>
+                        <p class="project-desc">AI-powered system to translate sign language to text/speech using computer vision and deep learning models.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/sign-language-translator" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>HTML Editor</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="featured-badge">🌟 Featured</div>
+                        <div class="project-lang">HTML • CSS • JavaScript</div>
+                        <p class="project-desc">Live HTML/CSS/JavaScript editor with real-time preview. Write code on the left, see results instantly on the right.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/html-editor" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Cricket Cashout Simulator</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="featured-badge">🌟 Featured</div>
+                        <div class="project-lang">HTML • CSS • JavaScript</div>
+                        <p class="project-desc">Interactive betting simulator. Enter odds and stakes, adjust odds with slider to calculate live cashout amounts.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/cricket-betting-sim" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Kabja Blender Extension</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="featured-badge">🌟 Featured</div>
+                        <div class="project-lang">Python • Blender</div>
+                        <p class="project-desc">Blender extension to control camera using mobile phone. Control cinematic shots with your smartphone.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/kabja-bl-extension" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Sci-Fi Portfolio</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">TypeScript • React</div>
+                        <p class="project-desc">Modern sci-fi themed portfolio website showcasing projects with futuristic UI design and smooth animations.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/sci-fi-portfolio" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Timetable Website</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">TypeScript • React</div>
+                        <p class="project-desc">Full-featured timetable/schedule management web application with intuitive UI and real-time updates.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/timetable-website" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>VLLMs Engine</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">Python • LLM</div>
+                        <p class="project-desc">High-throughput, memory-efficient inference and serving engine for large language models. Optimized for production.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/vllm" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>OpsPilot</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">AI • DevOps</div>
+                        <p class="project-desc">AI-powered incident diagnosis using Splunk. Detects anomalies, traces root causes, and generates remediation plans autonomously.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/OpsPilot" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>GANs in Slanted Land</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">Python • Deep Learning</div>
+                        <p class="project-desc">Generative Adversarial Networks research and implementation. Exploring creative applications of GANs.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/gans" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Autoencoders & VAE</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">Python • Deep Learning</div>
+                        <p class="project-desc">Comprehensive exploration of denoising autoencoders and variational autoencoders with YouTube tutorials.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/autoencoders" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Data Structures & Algorithms</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">Python</div>
+                        <p class="project-desc">Comprehensive DSA implementations with explanations. Competitive programming practice and solutions.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/dsawithpython" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Bookstore Backend</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">Java • Spring Boot</div>
+                        <p class="project-desc">Full-featured Java backend for bookstore application. RESTful APIs with database integration and authentication.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/bookstore" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>NeetCode Submissions</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">Python • Algorithms</div>
+                        <p class="project-desc">Solutions to NeetCode.io problems. LeetCode-style algorithm practice and optimization techniques.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/neetcode-submissions" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>2048 Game</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">JavaScript</div>
+                        <p class="project-desc">Classic 2048 puzzle game implementation. Fully playable with smooth animations and game logic.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/2048" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Godot Shape-Matching Game</h3>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-lang">GDScript • Godot 4</div>
+                        <p class="project-desc">Innovative side-scroller where the player switches between different shapes to match obstacles.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/new-game-project" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- More Projects Section -->
+        <div class="section">
+            <h2>Other Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header"><h3>2FA Authentication</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">JavaScript</div>
+                        <p class="project-desc">Two-factor authentication implementation.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/2fauth" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>InsightAgent</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">Python • AI</div>
+                        <p class="project-desc">AI-powered insight generation agent.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/InsightAgent" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>Mvocab</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">JavaScript</div>
+                        <p class="project-desc">SRT vocabulary extractor for learning from videos.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/Mvocab" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>Virtual Gamepad</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">JavaScript</div>
+                        <p class="project-desc">Turn Android device into PC game controller.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/buana-vpad" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>Urban Cart Storefront</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">CSS • HTML</div>
+                        <p class="project-desc">E-commerce storefront UI design.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/urbancart-storefront" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>Void Todo App</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">JavaScript</div>
+                        <p class="project-desc">Minimal sci-fi dark todo app with multi-page lists and CSV support.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/void-todo-sci-fi" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>CommBank Web & Server</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">Full Stack</div>
+                        <p class="project-desc">Complete banking application frontend and backend.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/CommBank-Web" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>User Service</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">Java • Microservices</div>
+                        <p class="project-desc">User authentication and management microservice.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/userservice" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>Typi</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">JavaScript</div>
+                        <p class="project-desc">Typing practice and speed test application.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/typi" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header"><h3>Instagram Reach Analysis</h3></div>
+                    <div class="project-body">
+                        <div class="project-lang">Python • Data Science</div>
+                        <p class="project-desc">Analyze Instagram post reach and engagement patterns.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/mdnadeemm/instagram-reach-analysis" target="_blank" class="project-link">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interests Section -->
+        <div class="section">
+            <h2>Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Research Areas</h3>
+                    <ul>
+                        <li>Computer Vision</li>
+                        <li>Generative AI & LLMs</li>
+                        <li>Neural Network Optimization</li>
+                        <li>Transfer Learning</li>
+                        <li>Autonomous Systems</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Creative Projects</h3>
+                    <ul>
+                        <li>Game Development (Godot)</li>
+                        <li>3D Graphics (Blender)</li>
+                        <li>Interactive Visualizations</li>
+                        <li>AI Art & Generation</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Community</h3>
+                    <ul>
+                        <li>Open Source Contributions</li>
+                        <li>Technical Writing</li>
+                        <li>Mentoring & Teaching</li>
+                        <li>Competitive Programming</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Mohammad Nadeem. All rights reserved. | <a href="https://github.com/mdnadeemm" target="_blank" style="color: #667eea; text-decoration: none;">GitHub</a> | <a href="https://linkedin.com/in/mdnadeemm" target="_blank" style="color: #667eea; text-decoration: none;">LinkedIn</a></p>
+        </div>
     </div>
 </body>
 </html>
-
